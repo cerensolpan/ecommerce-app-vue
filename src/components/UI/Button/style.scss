@@ -1,0 +1,40 @@
+@import '../../../styles/_variables.scss';
+
+@mixin button-bg($bg) {
+  background: $bg;
+  &:hover {
+    background: darken($bg, 8%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background: darken($bg, 25%);
+  }
+}
+
+.btn {
+  color: $white-color;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-size: 1em;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border: none;
+}
+
+.btn-primary {
+  @include button-bg($primary-color);
+}
+
+.btn-secondary {
+  @include button-bg($secondary-color);
+  color: $black-color;
+  border: 1px solid $lightgray-color;
+}
+
+.btn-circle {
+  border: 1px solid $lightgray-color;
+  border-radius: 100%;
+  padding: 10px 15px;
+  background-color: $white-color;
+}
