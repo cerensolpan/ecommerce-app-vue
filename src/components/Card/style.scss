@@ -1,0 +1,33 @@
+@import '../../styles/_variables.scss';
+
+.card {
+  width: 18rem;
+  padding: 1rem;
+
+  &__img {
+    width: 100%;
+    padding: 1rem 3rem;
+    object-fit: cover;
+  }
+
+  &__body {
+    span {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: $darkgray-color;
+    }
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: $darkgray-color;
+    }
+  }
+}
