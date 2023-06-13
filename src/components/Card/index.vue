@@ -7,6 +7,7 @@
     <div class="card__footer">
       <span>{{ product.price }} {{ product.currency }}</span>
       <ButtonComponent
+        @click="addProduct(product)"
         class="btn btn-block btn-primary"
         text="Add Basket"
       />
@@ -17,7 +18,7 @@
 <script>
 import './style.scss'
 import ButtonComponent from '../UI/Button/index.vue'
-
+import store from '../../store.js'
 export default {
   name: 'CardComponent',
   props: {
@@ -33,6 +34,13 @@ export default {
     ButtonComponent
   },
   setup() {
+    function addProduct(p) {
+      let product = { ...p }
+      store.dispatch('addProduct', product)
+    }
+    return {
+      addProduct
+    }
   }
 }
 </script>
