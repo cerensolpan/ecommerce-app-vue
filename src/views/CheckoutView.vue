@@ -19,16 +19,22 @@
                 </td>
                 <td class="table__detail">
                   <span>{{ product.name }}</span
-                  ><span class="table__detail-price">{{ product.price*product.quantity }}{{ ' ' }}{{ product.currency }}</span>
+                  ><span class="table__detail-price"
+                    >{{ product.price * product.quantity }}{{ ' ' }}{{ product.currency }}</span
+                  >
                 </td>
               </tr>
               <tr class="table__result">
                 <td class="input-counter">
-                  <button @click="decrease(product.id)" class="btn-circle">-</button>
+                  <button @click="decrease(product.id)" class="btn-circle decrease">-</button>
                   <span class="table-product-quantity">{{ product.quantity }}</span>
-                  <button @click="addProduct(product)" class="btn-circle" size="sm">+</button>
+                  <button @click="addProduct(product)" class="btn-circle increase" size="sm">
+                    +
+                  </button>
                 </td>
-                <td><span @click="removeProduct(product.id)" class="table-remove_btn">Remove</span></td>
+                <td>
+                  <span @click="removeProduct(product.id)" class="table-remove_btn">Remove</span>
+                </td>
               </tr>
             </div>
           </div>
@@ -36,14 +42,19 @@
         <tfoot class="table_footer">
           <div>
             <div class="table__result">
-              <span>TOTAL: {{ total }} TRY</span>
+              <span class="table__total">TOTAL: {{ total }} TRY</span>
             </div>
           </div>
           <div class="table__buttons">
             <RouterLink class="basket__link btn btn-secondary" to="/">
               ◀️ Continue Shopping</RouterLink
             >
-            <ButtonComponent class="btn btn-block btn-primary card-link" text="Place Order" />
+            <ButtonComponent
+              @click="resetCart()"
+              class="btn btn-block btn-primary card-link"
+              text="Place Order"
+              :disabled="cart.length<=0"
+            />
           </div>
         </tfoot>
       </table>
@@ -72,11 +83,15 @@ export default {
     function decrease(id) {
       store.dispatch('decrease', id)
     }
+    function resetCart() {
+      store.dispatch('resetCart')
+    }
 
     return {
       addProduct,
       removeProduct,
       decrease,
+      resetCart,
       cart: computed(() => store.getters.getCart),
       products: computed(() => store.getters.getProducts),
       total: computed(() => store.getters.getTotal),
