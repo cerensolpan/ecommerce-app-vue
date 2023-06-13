@@ -41,6 +41,15 @@ const store = createStore({
 
     loadingStatus(state, newLoadingStatus) {
       state.loading = newLoadingStatus
+    },
+
+    resetCart(state) {
+      state.cart = []
+      state.countInBasket = 0
+
+      toast.success('Your order is confirmed!', {
+        autoClose: 2000
+      })
     }
   },
   actions: {
@@ -59,22 +68,14 @@ const store = createStore({
         ])
         .then(() => {
           commit('addProduct', cartProduct)
-          const notify = () => {
-            toast.success('Added to basket', {
-              autoClose: 2000
-            })
-          }
-          notify()
+          toast.success('Added to basket', {
+            autoClose: 2000
+          })
         })
         .catch((error) => {
-          if (error.response.data.message === 'out of stock') {
-            const notify = () => {
-              toast.error('Out of stock :(', {
-                autoClose: 2000
-              })
-            }
-            notify()
-          }
+          toast.error(error.response.data.message, {
+            autoClose: 2000
+          })
         })
     },
 
@@ -96,6 +97,10 @@ const store = createStore({
           commit('loadingStatus', false)
         })
         .catch((err) => console.log('err', err))
+    },
+
+    resetCart({ commit }) {
+      commit('resetCart')
     }
   },
   getters: {
