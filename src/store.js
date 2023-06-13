@@ -21,6 +21,20 @@ const store = createStore({
       state.countInBasket = quantityCalculator(state.cart)
     },
 
+    removeProduct(state, id) {
+      state.cart = state.cart.filter((p) => p.id != id)
+      state.countInBasket = quantityCalculator(state.cart)
+    },
+
+    decrease(state, id) {
+      state.cart.map((p) => {
+        if (p.id == id && p.quantity > 1) {
+          p.quantity -= 1
+        }
+      })
+      state.countInBasket = quantityCalculator(state.cart)
+    },
+
     setProducts(state, data) {
       state.products = data
     },
@@ -64,6 +78,14 @@ const store = createStore({
         })
     },
 
+    removeProduct({ commit }, id) {
+      commit('removeProduct', id)
+    },
+
+    decrease({ commit }, id) {
+      commit('decrease', id)
+    },
+
     async getProducts({ commit }) {
       commit('loadingStatus', true)
 
@@ -83,6 +105,14 @@ const store = createStore({
 
     getCart: (state) => {
       return state.cart
+    },
+
+    getTotal: (state) => {
+      let total = 0
+      state.cart.map((p) => {
+        total += Number(p.price * p.quantity)
+      })
+      return total.toFixed(2)
     }
   },
   modules: {}
