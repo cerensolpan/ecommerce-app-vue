@@ -1,5 +1,5 @@
 <template>
-  <button class="btn" type="button">
+  <button class="btn" type="button" :disabled=disabled>
     {{ text }}
   </button>
 </template>
@@ -10,7 +10,8 @@ import './style.scss'
 export default {
   name: 'ButtonComponent',
   props: {
-    text: String
+    text: String,
+    disabled: Boolean,
   }
 }
 </script>

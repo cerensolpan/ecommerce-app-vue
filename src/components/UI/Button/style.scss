@@ -9,6 +9,10 @@
   &:active {
     background: darken($bg, 25%);
   }
+  &:disabled {
+    background: $lightgray-color;
+    cursor: not-allowed;
+  }
 }
 
 .btn {
