@@ -2,7 +2,7 @@
   <main>
     <div v-if="loading"><Loading /></div>
     <div class="products" v-else>
-      <div v-if="products.length === 0">Product is not found</div>
+      <div class="no-product" v-if="products.length === 0">Product is not found</div>
       <div v-else v-for="product in products" :key="product.id" class="products__card">
         <Card :product="product" />
       </div>
