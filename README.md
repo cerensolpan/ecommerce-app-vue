@@ -1,46 +1,36 @@
-# ecommerce-app-vue
+## Ecommerce Project
 
-This template should help get you started developing with Vue 3 in Vite.
+This project was built using Vue, Vuex, and SCSS. The project's main features include a product list and basket pages, and the basket will be updated when the Add to Basket button clicks on the product listing page.
 
-## Recommended IDE Setup
+## Demo
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+You can try out the live demo of this project at https://ecommerce-app-vue.netlify.app/
+## Technologies Used
 
-## Type Support for `.vue` Imports in TS
+This project uses the following technologies:
+- Vue 3
+- Vuex 4
+- SCSS
+- Vitest
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## Getting Started
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+To get started with this project, first clone the repository to your local machine:
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+    $ git clone https://github.com/cerensolpan/ecommerce-app-vue.git
 
-## Customize configuration
+Then, install the dependencies:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+    $ npm install
 
-## Project Setup
+To run the project locally, use the following command:
 
-```sh
-npm install
-```
+    $ npm run dev
 
-### Compile and Hot-Reload for Development
+To run the test, use the following command:
 
-```sh
-npm run dev
-```
+    $ npm run test
 
-### Type-Check, Compile and Minify for Production
+## License
 
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+This project is licensed under the MIT License. See the LICENSE file for more information.
